@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Game Title - Play Online</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+      padding-bottom: 2.5rem;
+    }
+
+    /* Header */
+    header {
+      background-color: #020617;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #334155;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .logo {
+      font-size: clamp(1.2rem, 3.5vw, 1.4rem);
+      font-weight: 700;
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    .back-btn {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .back-btn:hover {
+      color: #f8fafc;
+      background: #334155;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 1.25rem 1rem;
+    }
+
+    /* 1. Game Title */
+    .game-title {
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      margin-bottom: 0.85rem;
+      color: #f8fafc;
+      font-weight: 700;
+    }
+
+    /* 2. Responsive Iframe Container */
+    .game-player {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #334155;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      margin-bottom: 2rem;
+    }
+
+    .game-player iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* 3. More Games (Small Grid) */
+    .section-title {
+      font-size: clamp(1.1rem, 3vw, 1.3rem);
+      margin-bottom: 0.85rem;
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    .small-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 0.85rem;
+    }
+
+    .small-card {
+      background-color: #1e293b;
+      border-radius: 8px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid #334155;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .small-card:hover {
+      transform: translateY(-3px);
+      border-color: #38bdf8;
+    }
+
+    .small-card:active {
+      transform: scale(0.96);
+    }
+
+    .small-card img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      background: #000;
+      display: block;
+    }
+
+    .small-card-info {
+      padding: 0.45rem 0.5rem;
+    }
+
+    .small-card-info h4 {
+      font-size: clamp(0.75rem, 2vw, 0.85rem);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Mobile Specific Enhancements */
+    @media (max-width: 600px) {
+      header {
+        padding: 0.65rem 0.9rem;
+      }
+
+      .container {
+        padding: 0.85rem 0.65rem;
+      }
+
+      /* Adjust aspect-ratio so the player window isn't vertically tiny on tall phones */
+      .game-player {
+        aspect-ratio: 4 / 3;
+        min-height: 260px;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Compact 3-column mini grid on mobile */
+      .small-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+      }
+
+      .small-card-info {
+        padding: 0.35rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">🎮 Web Arcade</a>
+    <a href="index.html" class="back-btn">⬅ Home</a>
+  </header>
+
+  <main class="container">
+
+    <!-- 1. Game Name -->
+    <h1 class="game-title">Game Name Here</h1>
+
+    <!-- 2. Empty Iframe (Paste your game URL into src="") -->
+    <div class="game-player">
+      <iframe src="https://play.wgplayground.com/ifr/bb800ff4e642ff747a9b9939218357b4"
+        width="100%" height="600" frameborder="0"
+        allow="fullscreen; autoplay"
+        loading="lazy"></iframe>
+    </div>
+
+    <!-- 3. More Games (Small Grid) -->
+    <h2 class="section-title">More Games</h2>
+    <div class="small-grid">
+
+      <a href="#" class="small-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/2048_logo.svg" alt="2048" loading="lazy" />
+        <div class="small-card-info">
+          <h4>2048</h4>
+        </div>
+      </a>
+
+      <a href="#" class="small-card">
+        <img src="https://hextris.io/images/icons/apple-touch-icon-180x180.png" alt="Hextris" loading="lazy" />
+        <div class="small-card-info">
+          <h4>Hextris</h4>
+        </div>
+      </a>
+
+      <a href="#" class="small-card">
+        <img src="https://via.placeholder.com/300x300.png?text=Flappy" alt="Flappy Bird" loading="lazy" />
+        <div class="small-card-info">
+          <h4>Flappy Bird</h4>
+        </div>
+      </a>
+
+      <a href="#" class="small-card">
+        <img src="https://chromedino.com/assets/offline-sprite-2x.png" alt="Dino" loading="lazy" />
+        <div class="small-card-info">
+          <h4>Dino Run</h4>
+        </div>
+      </a>
+
+      <a href="#" class="small-card">
+        <img src="https://via.placeholder.com/300x300.png?text=Pacman" alt="Pac-Man" loading="lazy" />
+        <div class="small-card-info">
+          <h4>Pac-Man</h4>
+        </div>
+      </a>
+
+      <a href="#" class="small-card">
+        <img src="https://via.placeholder.com/300x300.png?text=Snake" alt="Snake" loading="lazy" />
+        <div class="small-card-info">
+          <h4>Snake</h4>
+        </div>
+      </a>
+
+    </div>
+
+  </main>
+
+</body>
+</html>
